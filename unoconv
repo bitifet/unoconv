@@ -853,9 +853,14 @@ class Convertor:
                 raise UnoException("The document '%s' could not be opened." % inputurl, None)
 
             if op.sheetname:
-                sheets = document.getSheets()
-                sheetid = sheets.getElementNames()[int(op.sheetname)] if op.sheetname.isnumeric() else op.sheetname
-                sheets.moveByName(sheetid, 0)
+                try:
+                    sheets = document.getSheets()
+                    sheet_id = op.sheetname
+                    sheetid = sheets.getElementNames()[int(op.sheetname)] if op.sheetname.isnumeric() else op.sheetname
+                    sheets.moveByName(sheetid, 0)
+                except:
+                    raise UnoException("Document has'nt any sheet named '%s'." % op.sheetname, None)
+
 
             ### Import style template
             phase = "import-style"
