@@ -700,6 +700,7 @@ unoconv options:
       --password=string    provide a password to decrypt the document
   -s, --server=server      specify the server address (default: 127.0.0.1)
                              to be used by client or listener
+  -S, --sheet=sheet        specify the sheet name or position (starting from 0)
       --show               list the available output formats
       --stdout             write output to stdout
   -t, --template=file      import the styles from template (.ott)
