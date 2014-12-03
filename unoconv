@@ -854,8 +854,9 @@ class Convertor:
 
             if op.sheetname:
                 sheets = document.getSheets()
-                sheets.moveByName(op.sheetname, 0)
-                
+                sheetid = sheets.getElementNames()[int(op.sheetname)] if op.sheetname.isnumeric() else op.sheetname
+                sheets.moveByName(sheetid, 0)
+
             ### Import style template
             phase = "import-style"
             if op.template:
