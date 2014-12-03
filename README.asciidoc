@@ -9,6 +9,18 @@ non-interactive conversion of documents.
 _For practical reasons we mention LibreOffice, but OpenOffice is supported by
 unoconv as well._
 
+== This branch ==
+This is NOT an official repository for unoconv.
+This is a fork of vaurum repository on https://github.com/vaurum/unoconv
+...which is, in turn, a fork of zopa repostiory on https://github.com/zopa/unoconv
+
+Varum opened the sheet branch which let to specify a sheet on exporting.
+
+I added a few improvements:
+  - The ability to use it's numerical position.
+  - Better error reporting.
+  - And updted help message.
+
 == Installing unoconv
 unoconv can be installed using packages coming from your distribution, or
 simply by copying the unoconv python script to your system.
