@@ -23,6 +23,7 @@ import os
 import subprocess
 import sys
 import time
+import re
 
 __version__ = "$Revision$"
 # $Source$
@@ -856,8 +857,11 @@ class Convertor:
             if op.sheetname:
                 try:
                     sheets = document.getSheets()
-                    sheet_id = op.sheetname
-                    sheetid = sheets.getElementNames()[int(op.sheetname)] if op.sheetname.isnumeric() else op.sheetname
+                    if (re.compile(r'.*\D').match(op.sheetname)):
+                        sheetid = op.sheetname
+                    else:
+                        sheetid = sheets.getElementNames()[int(op.sheetname)]
+
                     sheets.moveByName(sheetid, 0)
                 except:
                     raise UnoException("Document has'nt any sheet named '%s'." % op.sheetname, None)
